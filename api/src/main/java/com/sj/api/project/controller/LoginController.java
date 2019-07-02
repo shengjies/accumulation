@@ -5,6 +5,8 @@ import com.sj.api.common.annotation.PassToken;
 import com.sj.api.common.utils.JwtUtils;
 import com.sj.api.common.utils.ServletUtils;
 import com.sj.api.project.domain.User;
+import com.sj.common.utils.ResultAjax;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,13 +20,15 @@ public class LoginController {
      */
     @PassToken
     @RequestMapping("/login")
-    public String login(){
-        HttpServletRequest request = ServletUtils.getRequest();
-        System.out.println(request.getRemoteAddr());
+    public ResultAjax login() throws Exception{
+//        String a =null;
+//        if(StringUtils.isEmpty(a)){
+//            throw new Exception("操作异常");
+//        }
         User u = new User();
         u.setId(1);
         u.setUsername("ajie");
         u.setPassword("123123");
-        return JwtUtils.sign(u.getUsername(),u.getPassword());
+        return ResultAjax.toData(JwtUtils.sign(u.getUsername(),u.getPassword()));
     }
 }
