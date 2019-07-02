@@ -6,6 +6,7 @@
     <modules>
         <module>api</module>
         <module>common</module>
+        <module>web</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -34,6 +35,20 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- SpringBoot集成thymeleaf模板 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!-- spring-boot-devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional> <!-- 表示依赖不会传递 -->
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -43,8 +58,10 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.sj.api.ApiApplication</mainClass>
+                    <mainClass>com.sj.web.WebApplication</mainClass>
                     <layout>ZIP</layout>
+                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
+                    <executable>true</executable>
                 </configuration>
                 <executions>
                     <execution>
