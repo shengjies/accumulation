@@ -8,6 +8,7 @@
         <module>common</module>
         <module>web</module>
         <module>shiro</module>
+        <module>mybatis01</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
