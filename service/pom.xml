@@ -7,30 +7,30 @@
         <groupId>com.sj</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sj</groupId>
-    <artifactId>common</artifactId>
+    <artifactId>service</artifactId>
+    <description>服务器层</description>
     <dependencies>
         <dependency>
-            <groupId>com.tencentcloudapi</groupId>
-            <artifactId>tencentcloud-sdk-java</artifactId>
-            <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
-            <version>3.0.67</version>
+            <groupId>com.sj</groupId>
+            <artifactId>domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.23</version>
+            <groupId>com.sj</groupId>
+            <artifactId>mapper</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
-        <finalName>common</finalName>
+        <finalName>service</finalName>
         <resources>
             <resource>
-                <directory>src/main/resource</directory>
+                <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*.properties</include>
+                    <include>**/**/*.html</include>
                     <include>**/*.xml</include>
                 </includes>
                 <filtering>false</filtering>
