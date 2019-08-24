@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sj.mapper.slave.device.IDeviceMapper">
+    <resultMap id="selectDeviceResult" type="com.sj.domain.device.Device">
+        <id property="id" column="id"/>
+        <result property="code" column="code"/>
+        <result property="deviceName" column="devicename"/>
+        <result property="remark" column="remark"/>
+        <result property="createDate" column="createdate"/>
+    </resultMap>
+
+    <select id="findDeviceByDeviceName" resultMap="selectDeviceResult">
+        SELECT * FROM tab_device where devicename=#{deviceName} limit 1;
+    </select>
+</mapper>
